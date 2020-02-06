@@ -26,6 +26,7 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   </head>
   <body>
     <header class="header">
@@ -78,10 +79,10 @@
     <section style="background: url(img/girl.jpg); background-size: cover; background-position: center center" class="hero">
       <div class="container">
         <div class="row">
-          <div class="col-lg-7">
+          <div class="col-lg-9" style="margin-left: auto; margin-right: auto;">
             <h1>Test Your HIV Infection Before It Too Late</h1><!--<a href="#" class="hero-link">Discover More</a>-->
           </div>
-        </div><a href=".intro" class="continue link-scroll"><i class="fa fa-long-arrow-down"></i> Scroll Down</a>
+        <!--</div><a href="#" class="continue link-scroll"><i class="fa fa-long-arrow-down"></i> Scroll Down</a> -->
       </div>
     </section>
     <!-- Intro Section-->
@@ -97,6 +98,52 @@
         </div>
       </div>
     </section>
+    <!-- login/register section -->
+    <section class="no-padding-top">
+      <div class="container container-login">
+        <div class="row">
+          <div class="col-md-6 login-form-1">
+            <h3>Login</h3>
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Username" value="" />
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Your Password" value="" />
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Login" />
+              </div>
+              <!--
+              <div class="form-group">
+                <a href="#" class="ForgetPwd">Forget Password?</a>
+              </div> -->
+            </form>
+          </div>
+          <div class="col-md-6 login-form-2">
+            <h3>Register</h3>
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Username" value="" />
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Age" value="" />
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Sex (Male/Female)" value="" />
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Your Password *" value="" />
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Register" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end section -->
     <section class="featured-posts no-padding-top">
       <div class="container">
         <!-- Post-->
@@ -196,8 +243,9 @@
     <section style="background: url(img/divider-bg.jpg); background-size: cover; background-position: center bottom" class="divider">
       <div class="container">
         <div class="row">
-          <div class="col-md-7">
-            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2><a href="#" class="hero-link">View More</a>
+          <div class="col-md-10" style="margin-left: auto; margin-right: auto;">
+            <h2>"It is bad enough that people are dying of AIDS, but no one should die of ignorance"</h2>
+            <h3>-Elizabeth Taylor</h3>
           </div>
         </div>
       </div>
@@ -273,6 +321,7 @@
     </section>
     -->
     <!-- Gallery Section-->
+    <!--
     <section class="gallery no-padding">    
       <div class="row">
         <div class="mix col-lg-3 col-md-3 col-sm-6">
@@ -293,6 +342,7 @@
         </div>
       </div>
     </section>
+  -->
     <!-- Page Footer-->
     <footer class="main-footer">
       <!--
@@ -371,5 +421,7 @@
     <script src="{{asset('vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
     <script src="{{asset('vendor/@fancyapps/fancybox/jquery.fancybox.min.js')}}"></script>
     <script src="{{asset('js/front.js')}}"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </body>
 </html>
