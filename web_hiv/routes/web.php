@@ -14,3 +14,18 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/test-page','testController@listGejala');
+
+Route::get('/result',function(){
+	return view('result');
+});
+
+Route::get('/verification',function(){
+	return view('verification');
+});
+
+Route::get('/admin',function(){
+	return view('admin');
+});
+
