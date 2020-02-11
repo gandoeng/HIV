@@ -11,21 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
 Route::get('/test-page','testController@listGejala');
 
-Route::get('/result',function(){
-	return view('result');
-});
-
-Route::get('/verification',function(){
-	return view('verification');
-});
-
-Route::get('/admin',function(){
-	return view('admin');
-});
+//Membuka halaman web
+Route::get('/', 'indexController@openWeb');
+Route::get('/result','resultController@openWeb');
+Route::get('/verification','verificationController@openWeb');
+Route::get('/admin','adminController@openWeb');
 
