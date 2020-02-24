@@ -73,7 +73,34 @@
             <div class="container-fluid dashboard-content">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3 class="text-center">Content goes here!</h3>
+                        <h1 style="text-align: center; font-size: 30pt; padding-top: 2rem;"><b> VERIFICATION </b></h1>
+                        <div class="card-body" style="margin-top: 3rem">
+                            <form id="upload-hasil" method="POST" enctype="multipart/form-data">
+                                <div class="input-group mb-3" >
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                    </div>
+                                    <div class="input-group mb-3 custom-penyakit" style="margin-top : 1rem;">
+                                        <input type="text" name="inputJenisPenyakit" class="form-control form-control" placeholder="Jenis penyakit">
+                                    </div>
+                                    <div class="input-group mb-3 custom-penyakit"">
+                                        <select class="form-control">
+                                            <option selected disabled>Pilih status HIV</option>
+                                            <option value="positif">Positif</option>
+                                            <option value="negatif">Negatif</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary" style="background-color: #000; border-color: #000; height:38px; float: right;">upload</button>
+                            </form>
+                            <table style="margin-top: 5rem;">
+                                <tr>
+                                    <td><h4>Status</h4></td>
+                                    <td><h4>:</h4></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,6 +138,14 @@
     <script src="{{asset('concept/assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
     <script src="{{asset('concept/assets/vendor/slimscroll/jquery.slimscroll.js')}}"></script>
     <script src="{{asset('concept/assets/libs/js/main-js.js')}}"></script>
+    <script>    
+        // Add the following code if you want the name of the file appear on select
+
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 </body>
  
 </html>

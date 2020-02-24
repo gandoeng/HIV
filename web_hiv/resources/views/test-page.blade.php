@@ -74,38 +74,60 @@
             <div class="container-fluid dashboard-content">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="card-body">
-                        <div class="card-body border-top border-bottom">
-                            <div class="form-group">
-                                <button type="button" class="btn btn-primary btn-block" style="background-color: #000; border-color: #000;">Get Your Test !</button>
-                            </div>
-                        </div>
-                        <form id="list-gejala" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label class="col-form-label">Tambah Gejala</label>
-                                <div class="input-group mb-3">
-                                    <select name="select" id="selectGejala" onchange="pilihGejala()" class="form-control">
-                                        <option selected disabled>Pilih gejala</option>
-                                        @foreach ($list as $l)
-                                        <option value="{{$l->namaGejala}}">{{$l->namaGejala}}</option>
-                                        @endforeach
-                                    </select>
-                                    <div class="input-group-append">
-                                        <button type="button" class="btn btn-primary" onclick="myFunction()" style="background-color: #000; border-color: #000; height:38px;" name="tambah" id="tambah">Tambah!</button>
+                        <div class="card-body border-bottom">
+                            <form >
+                                <div class=" border-top" style="padding: 0 px;">
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-primary btn-block" style="background-color: #000; border-color: #000;">Get Your Test !</button>
                                     </div>
-                                    <div class="input-group-append">
-                                        <button type="button" class="btn btn-primary" onclick="resetFunction()" style="background-color: #000; border-color: #000; height:38px;" name="Reset" id="Reset">Reset</button>
-                                    </div>
-
+                                </div>
+                            </form>
+                            <div class="border-bottom">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-primary btn-block" onclick="resetFunction()" style="background-color: #000; border-color: #000; height:38px;" name="Reset" id="Reset">Reset</button>
                                 </div>
                             </div>
-                        </form>
-                        <div id="container2"></div>
-                            <div class="form-group" id="hasilSelect1"  >
-                                <div class="add-row" id="hasilSelect">
+                        </div>
+                        <div class="card-body">
+                            <form id="list-gejala" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label class="col-form-label">Tambah Eksternal</label>
+                                    <div class="input-group mb-3">
+                                        <select name="select" id="selectEksternal" onchange="pilihEksternal()" class="form-control">
+                                            <option selected disabled>Pilih Eksternal</option>
+                                            @foreach ($listEksternal as $l)
+                                            <option value="{{$l->namaEksternal}}">{{$l->namaEksternal}}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-primary" onclick="myFunction2()" style="background-color: #000; border-color: #000; height:38px;" name="tambah" id="tambah">Tambah!</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <form id="list-gejala" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label class="col-form-label">Tambah Gejala</label>
+                                    <div class="input-group mb-3">
+                                        <select name="select" id="selectGejala" onchange="pilihGejala()" class="form-control">
+                                            <option selected disabled>Pilih gejala</option>
+                                            @foreach ($list as $l)
+                                            <option value="{{$l->namaGejala}}">{{$l->namaGejala}}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-primary" onclick="myFunction()" style="background-color: #000; border-color: #000; height:38px;" name="tambah" id="tambah">Tambah!</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="container2"></div>
+                                <div class="form-group" id="hasilSelect1"  >
+                                    <div class="add-row" id="hasilSelect">
                                     <!--
                                     <input type="text" name="tambahGejala" class="alert alert-secondary" readonly style="width: 100%;"> -->
-                                </div> 
+                                    </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -146,6 +168,7 @@
     <script src="{{asset('concept/assets/vendor/slimscroll/jquery.slimscroll.js')}}"></script>
     <script src="{{asset('concept/assets/libs/js/main-js.js')}}"></script>
     <script type="text/javascript">
+        //list gejala
         var hasil;
         function pilihGejala(){
             hasil = document.getElementById('selectGejala').value;
@@ -163,6 +186,22 @@
         function resetFunction(){
             $('.hapusData').remove();
         }
+
+        //list eksternal
+        var hasil2
+        function pilihEksternal(){
+            hasil2 = document.getElementById('selectEksternal').value;
+        }
+
+        function myFunction2(){
+            if (hasil2 != null ) {
+                const div = document.createElement('div');
+                div.className = "add-row";
+                div.innerHTML = '<input type="text" name="tambahGejala" class="alert alert-secondary hapusData" readonly style="width: 100%;"" id = "inputGejala" value="'+hasil2+'" >'; 
+                document.getElementById("hasilSelect").appendChild(div);
+            }
+        }
+
     </script>
 </body>
  

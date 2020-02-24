@@ -73,7 +73,30 @@
             <div class="container-fluid dashboard-content">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3 class="text-center">Content goes here!</h3>
+                        <h1 style="text-align: center; font-size: 30pt; padding-top: 2rem;"><b> RESULT </b></h1>
+                        <div class="card-body" style="border: 2px solid #71748d; margin-top: 3rem;">
+                            <table>
+                                <tr>
+                                    <td><h4>Jenis Penyakit</h4></td>
+                                    <td><h4>:</h4></td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Persentase terjangkit penyakit</h4></td>
+                                    <td><h4>:</h4></td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Persentase terjangkit virus HIV</h4></td>
+                                    <td><h4>:</h4></td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Keterangan/saran</h4></td>
+                                    <td><h4>:</h4></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <form>
+                            <button type="button" class="btn btn-primary" style="background-color: #000; border-color: #000; height:38px; margin-top: 2rem; float: right;">download</button>
+                        </form>
                     </div>
                 </div>
             </div>
