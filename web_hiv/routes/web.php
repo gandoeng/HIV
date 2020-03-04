@@ -11,12 +11,31 @@
 |
 */
 
-Route::get('/test-page/','testController@listGejala');
+//halaman test eksternal
+Route::get('/test-page','testController@listEksternal');
+
+//melanjutkan ke test selanjutnya
+Route::get('test-page/next','testController@nextPage');
+
+//halaman test keluhan
+Route::get('/test-page2','testController@listGejala');
+
+//mengolah data 
+Route::post('/test-page2/proses','testController@proses');
 
 //Membuka halaman web
 Route::get('/', 'indexController@openWeb');
 Route::get('/result','resultController@openWeb');
 Route::get('/verification','verificationController@openWeb');
 Route::get('/admin','adminController@openWeb');
+
+//memnyimpan register
+Route::get('/index/register','indexController@simpanRegister');
+
+//login
+Route::get('/index/login','indexController@login');
+
+//logout
+Route::get('/logout','indexController@logout');
 
 

@@ -11,6 +11,7 @@
     <link href="{{asset('concept/assets/vendor/fonts/circular-std/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('concept/assets/libs/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('concept/assets/vendor/fonts/fontawesome/css/fontawesome-all.css')}}">
+
 </head>
 
 <body>
@@ -46,9 +47,6 @@
                             <li class="nav-divider" style="color: #fff;">
                                 Menu
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link " href="{{url('test-page')}}" style="color: #fff;"><i class="fa fa-fw fa-user-circle" style="color: #fff;"></i>Take A Test</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link active" href="#" style="color: #fff;"><i class="fas fa-fw fa-chart-pie" style="color: #fff;"></i>Result</a>
                             </li>
@@ -56,7 +54,7 @@
                                 <a class="nav-link" href="{{url('verification')}}" style="color: #fff;" ><i class="fab fa-fw fa-wpforms" style="color: #fff;"></i>Verification</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #fff;"><i class="fa fa-fw fa-rocket" style="color: #fff;"></i>Log Out</a>
+                                <a class="nav-link" href="{{ url('/logout') }}" style="color: #fff;"><i class="fa fa-fw fa-rocket" style="color: #fff;"></i>Log Out</a>
                             </li>
                         </ul>
                     </div>
@@ -134,6 +132,9 @@
     <script src="{{asset('concept/assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
     <script src="{{asset('concept/assets/vendor/slimscroll/jquery.slimscroll.js')}}"></script>
     <script src="{{asset('concept/assets/libs/js/main-js.js')}}"></script>
+    
+    @include('sweetalert::alert')
+
 </body>
  
 </html>

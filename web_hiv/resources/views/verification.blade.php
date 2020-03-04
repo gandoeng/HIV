@@ -46,9 +46,6 @@
                             <li class="nav-divider" style="color: #fff;">
                                 Menu
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{url('/test-page')}} " style="color: #fff;"><i class="fa fa-fw fa-user-circle" style="color: #fff;"></i>Take A Test</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/result')}}" style="color: #fff;" ><i class="fas fa-fw fa-chart-pie" style="color: #fff;"></i>Result</a>
                             </li>
@@ -56,7 +53,7 @@
                                 <a class="nav-link active" href="#" style="color: #fff;" ><i class="fab fa-fw fa-wpforms" style="color: #fff;"></i>Verification</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #fff;" ><i class="fa fa-fw fa-rocket" style="color: #fff;"></i>Log Out</a>
+                                <a class="nav-link" href="{{ url('logout') }}" style="color: #fff;" ><i class="fa fa-fw fa-rocket" style="color: #fff;"></i>Log Out</a>
                             </li>
                         </ul>
                     </div>

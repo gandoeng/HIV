@@ -74,31 +74,26 @@
         <!-- ============================================================== -->
         <!-- wrapper  -->
         <!-- ============================================================== -->
-        <div style="margin-left: 0px;">
+        <div >
             <div class="container-fluid dashboard-content">
-                <form action="{{ url('/test-page/next') }}" method="GET">
+                <form action="{{ url('/test-page2/proses') }}" method="POST">
                  @csrf
                     <div class="row">
+
                         <div class="col-lg-12">                                
                             <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Faktor Luar</strong>
+                                <div class="card-header" >
+                                    <strong class="card-title">Keluhan</strong>
                                 </div>
                                 <div class="card-body">
-                                    <div style="overflow: scroll; height: auto;">
+                                    <div style="overflow: scroll; height: 450px;">
                                         <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Faktor</th>
-                                                    <th scope="col">Pilih</th>
-                                                </tr>
-                                            </thead>
                                             <tbody>
             
-                                                @foreach($listEksternal as $l)
+                                                @foreach($list as $l)
                                                 <tr>
-                                                    <td>{{ $l->namaEksternal }}</td>
-                                                    <td><input type="radio" name="eksternal" value="{{ $l->idEksternal }}" ></td>
+                                                    <td>{{ $l->namaGejala }}</td>
+                                                    <td><input type="checkbox" name="gejala[]" value="{{ $l->idGejala }}" ></td>
                                                 </tr>
                                                 @endforeach
                                                 
@@ -111,7 +106,9 @@
                     </div>
                     <div class="form-group">
                         <div style="padding: 0 px; width: auto;">
-                            <button type="submit" class="btn btn-primary" style="background-color: #000; border-color: #000; float: right;">Next</button>
+                            <button type="submit" class="btn btn-primary" style="background-color: #000; border-color: #000; float: right;">Get Your Test !</button>
+                            <!--
+                            <a href="{{ url('/result')}}" type="submit" class="btn btn-primary" style="background-color: #000; border-color: #000; float: left; color: white;">Prev</a> -->
                         </div>
                     </div>
                 </form>

@@ -47,7 +47,7 @@
                                 Menu
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #fff;"><i class="fa fa-fw fa-rocket" style="color: #fff;"></i>Log Out</a>
+                                <a class="nav-link" href="{{ url('logout') }}" style="color: #fff;"><i class="fa fa-fw fa-rocket" style="color: #fff;"></i>Log Out</a>
                             </li>
                         </ul>
                     </div>
@@ -102,6 +102,8 @@
     <script src="{{asset('concept/assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
     <script src="{{asset('concept/assets/vendor/slimscroll/jquery.slimscroll.js')}}"></script>
     <script src="{{asset('concept/assets/libs/js/main-js.js')}}"></script>
+   
+
 </body>
  
 </html>
