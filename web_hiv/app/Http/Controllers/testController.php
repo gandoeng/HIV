@@ -108,6 +108,13 @@ class testController extends Controller
 
         $gejala = $request->input('gejala');
         $idPasien = $request->session()->get('pasien');
+        $persenGejalaHasil = 0;
+        $persenEksternal = 0;
+        $persenHIV = 0;
+        $i=0;
+        $jumlahPenyakit = 0;
+        $arrayPenyakit = array();
+        $arrayPersenPenyakit = array();
 
         if ($gejala == NULL){
             return redirect('/test-page');
@@ -115,70 +122,70 @@ class testController extends Controller
             $jumlah = count($gejala);
             $eksternal = $request->session()->get('eksternal');
             $persenGejala = 0;
-
+            
             if($jumlah <= 2){
-
+                $penyakit = 'PE012';
                 //mencari persentase gejala HIV
-                for ($i = 0, $i<$jumlah, $i++){
+                for ($i = 0; $i<$jumlah; $i++){
 
-                    if($eksternal[$i] == 'GJ007'){
+                    if($gejala[$i] == 'GJ007'){
 
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
 
-                    } else if($eksternal[$i] == 'GJ047'){
+                    } else if($gejala[$i] == 'GJ047'){
                         
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                         
-                    } else if($eksternal[$i] == 'GJ029'){
+                    } else if($gejala[$i] == 'GJ029'){
                         
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                                             
-                    } else if($eksternal[$i] == 'GJ013'){
+                    } else if($gejala[$i] == 'GJ013'){
 
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                         
-                    } else if($eksternal[$i] == 'GJ012'){
+                    } else if($gejala[$i] == 'GJ012'){
 
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                         
-                    } else if($eksternal[$i] == 'GJ027'){
+                    } else if($gejala[$i] == 'GJ027'){
 
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                         
-                    } else if($eksternal[$i] == 'GJ030'){
+                    } else if($gejala[$i] == 'GJ030'){
                         
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                         
-                    } else if($eksternal[$i] == 'GJ048'){
+                    } else if($gejala[$i] == 'GJ048'){
 
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                         
-                    } else if($eksternal[$i] == 'GJ040'){
+                    } else if($gejala[$i] == 'GJ040'){
                        
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                         
-                    } else if($eksternal[$i] == 'GJ033'){
+                    } else if($gejala[$i] == 'GJ033'){
 
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                         
-                    } else if($eksternal[$i] == 'GJ031'){
+                    } else if($gejala[$i] == 'GJ031'){
                         
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                         
-                    } else if($eksternal[$i] == 'GJ049'){
+                    } else if($gejala[$i] == 'GJ049'){
 
-                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$eksternal[i])->value('persen');
+                        $persenSymptomps = DB::table('Symptomps')->where('daftar','=',$gejala[$i])->value('persen');
                         $persenGejala = $persenGejala + $persenSymptomps;
                         
                     }
@@ -186,7 +193,7 @@ class testController extends Controller
                 }
 
                 //hitung hitung
-                $persenEksternal = DB::table('dataHIV')->where('idEksternal','=',$eksternal)->where('statusHIV','=','positive')->value('persen')
+                $persenEksternal = DB::table('dataHIV')->where('idEksternal','=',$eksternal)->where('statusHIV','=','positive')->value('persen');
 
                 $persenGejalaHasil = $persenGejala/$jumlah;
 
@@ -202,72 +209,203 @@ class testController extends Controller
                 DB::table('hasil')->insert([
                     ['idEksternal' => $eksternal, 'persenPenyakit' => 0, 'persenHIV' => $persenHIV, 'ketHasil' => $ketHasil, 'verifikasi' => 'tidak', 'lab' => NULL, 'idPenyakit' => 'PE012', 'idPasien' => $idPasien]
                 ]);
-
                 
             } else if($jumlah > 2 ) {
+            
+                $hitungTBC = 0;
+                $hitungSyphilis = 0;
+                $hitungGonorea = 0;
+                $hitungChlamydia = 0;
+                $hitungTrichomoniasis = 0;
+                $hitungHepatitis = 0;
+                $hitungTinea = 0;
+                $hitungHerpes = 0;
+                $hitungJringan = 0;
+                $hitungJberat = 0;
+                $hitungMeningitis = 0;
 
-                for ($i = 0; $i<$jumlah ; $i++){
-                
-                    if($eksternal[$i] == 'GJ001'){
-                        $GJ001 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ002'){
-                        $GJ002 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ003'){
-                        $GJ003 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ004'){
-                        $GJ004 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ005'){
-                        $GJ005 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ006'){
-                        $GJ006 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ007'){
-                        $GJ007 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ008'){
-                        $GJ008 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ009'){
-                        $GJ009 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ010'){
-                        $GJ010 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ011'){
-                        $GJ011 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ012'){
-                        $GJ012 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ013'){
-                        $GJ013 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ014'){
-                        $GJ014 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ015'){
-                        $GJ015 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ016'){
-                        $GJ016 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ017'){
-                        $GJ017 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ018'){
-                        $GJ018 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ019'){
-                        $GJ019 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ020'){
-                        $GJ020 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ021'){
-                        $GJ021 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ022'){
-                        $GJ022 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ023'){
-                        $GJ023 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ024'){
-                        $GJ024 = $eksternal[$i];
-                    } else if($eksternal[$i] == 'GJ025'){
-                        $GJ025 = $eksternal[$i];
+                for ($i = 0; $i<$jumlah; $i++){
+
+                    //cek rules
+                    $cekTBC = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE001')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+                    $cekSyphilis = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE002')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+                    $cekGonorea = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE003')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+                    $cekChlamydia = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE004')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+                    $cekTrichomoniasis = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE005')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+                    $cekHepatitis = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE006')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+                    $cekTinea = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE007')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+                    $cekHerpes = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE008')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+                    $cekJringan = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE009')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+                    $cekJberat = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE010')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+                    $cekMeningitis = DB::table('gejalaPenyakit')->where('idPenyakit','=','PE011')->where('idGejala','=',$gejala[$i])->value('idPenyakit');
+
+
+                    if($cekTBC == 'PE001'){
+                        $hitungTBC++;
+                    }
+
+                    if($cekSyphilis == 'PE002'){
+                        $hitungSyphilis++;
+                    }
+
+                    if($cekGonorea == 'PE003'){
+                        $hitungGonorea++;
+                    }
+
+                    if($cekChlamydia == 'PE004'){
+                        $hitungChlamydia++;
+                    }
+
+                    if($cekTrichomoniasis == 'PE005'){
+                        $hitungTrichomoniasis++;
+                    }
+
+                    if($cekHepatitis == 'PE006'){
+                        $hitungHepatitis++;
+                    }
+
+                    if($cekTinea == 'PE007'){
+                        $hitungTinea++;
+                    }
+
+                    if($cekHerpes == 'PE008'){
+                        $hitungHerpes++;
+                    }
+
+                    if($cekJringan == 'PE009'){
+                        $hitungJringan++;
+                    }
+
+                    if($cekJberat == 'PE010'){
+                        $hitungJberat++;
+                    }
+
+                    if($cekMeningitis == 'PE011'){
+                        $hitungMeningitis++;
                     } 
-
                 } 
+
+                $countArrayPenyakit = 0;
+
+                if($hitungTBC != 0){
+                    $persenTBC = $hitungTBC/9*100;
+
+                    $arrayPenyakit["PE001"] = $persenTBC;
+
+                    $countArrayPenyakit++;
+                }
+
+                if($hitungSyphilis != 0){
+                    $persenSyphilis = $hitungSyphilis/8*100;
+                     
+                    $arrayPenyakit["PE002"] = $persenSyphilis;
+
+
+                    $countArrayPenyakit++;
+                }
+
+                if($hitungGonorea != 0){
+                    $persenGonorea = $hitungGonorea/7*100;
+
+                    $arrayPenyakit["PE003"] = $persenGonorea;
+
+                    $countArrayPenyakit++;
+                }
+
+                if($hitungChlamydia != 0){
+                    $persenChlamydia = $hitungChlamydia/6*100;
+
+                    $arrayPenyakit["PE004"] = $persenChlamydia;
+
+                    $countArrayPenyakit++;
+                }
+
+                if($hitungTrichomoniasis != 0){
+                    $persenTrichomoniasis = $hitungTrichomoniasis/4*100;
+
+                    $arrayPenyakit["PE005"] = $persenTrichomoniasis;
+
+                    $countArrayPenyakit++;
+                }
+
+                if($hitungHepatitis != 0){
+                    $persenHepatitis = $hitungHepatitis/12*100;
+
+                    $arrayPenyakit["PE006"] = $persenHepatitis;
+
+                    $countArrayPenyakit++;
+                }
+
+                if($hitungTinea != 0){
+                    $persenTinea = $hitungTinea/4*100;
+
+                    $arrayPenyakit["PE007"] = $persenTinea;
+
+                    $countArrayPenyakit++;
+                }
+
+                if($hitungHerpes != 0){
+                    $persenHerpes = $hitungHerpes/6*100;
+
+                    $arrayPenyakit["PE008"] = $persenHerpes;
+
+                    $countArrayPenyakit++;
+                }
+
+                if($hitungJringan != 0){
+                    $persenJringan = $hitungJringan/3*100;
+
+                    $arrayPenyakit["PE009"] = $persenJringan;
+
+                    $countArrayPenyakit++;
+                }
+
+                if($hitungJberat != 0){
+                    $persenJberat = $hitungJberat/9*100;
+
+                    $arrayPenyakit["PE010"] = $persenJberat;
+
+                    $countArrayPenyakit++;
+                }
+
+                if($hitungMeningitis != 0){
+                    $persenMeningitis = $hitungMeningitis/8*100;
+
+                    $arrayPenyakit["PE011"] = $persenMeningitis;
+    
+                    $countArrayPenyakit++;
+                }
+                arsort($arrayPenyakit);
+
+
+                //hasil penyakit
+                $namaPenyakit = array_key_first($arrayPenyakit);
+                $persenPenyakit = $arrayPenyakit[$namaPenyakit];
+
+                //HIV
+                $persenGejalaHasil = 84;
+                $persenEksternal = DB::table('dataHIV')->where('idEksternal','=',$eksternal)->where('statusHIV','=','positive')->value('persen');
+
+                $persenHIV = ($persenGejalaHasil + $persenEksternal)/2;
+
+                if($persenHIV > 50){
+                    $ketHasil = "Dianjurkan untuk test HIV di puskesmas atau rumah sakit terdekat";
+                } else {
+                    $ketHasil = "Jaga kesehatan anda dimanapun anda berada";
+                }
+
+                 //masukkan kedalam tabel hasil
+                DB::table('hasil')->insert([
+                    ['idEksternal' => $eksternal, 'persenPenyakit' => $persenPenyakit, 'persenHIV' => $persenHIV, 'ketHasil' => $ketHasil, 'verifikasi' => 'tidak', 'lab' => NULL, 'idPenyakit' => $namaPenyakit, 'idPasien' => $idPasien]
+                ]);
 
             } 
 
-
-            return $jumlah;
+            //update data pasien test
+            DB::table('pasien')->where('idPasien','=',$idPasien)->update(['sudahTest' => 'S']);
+            return redirect('/result');
+        
         }
 
     }
-
 }
