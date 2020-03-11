@@ -73,16 +73,25 @@ class indexController extends Controller
             $idPasien = DB::table('pasien')->where('namaPasien','=',$namaPasien)->where('sandi','=',$sandi)->value('idPasien');
             $request->session()->put('pasien',$idPasien);
 
-            
-            if($cekTest == 'B'){
+            $cekLevel = DB::table('pasien')->where('idPasien','=',$idPasien)->value('level');
 
-                return redirect('test-page')->with('success', 'Task Created Successfully!');
+            if($cekLevel == 1) {
+
+                if($cekTest == 'B'){
+
+                    return redirect('test-page')->with('success', 'Task Created Successfully!');
+
+                } else {
+
+                    return redirect('result');
+
+                }
 
             } else {
-
-                return redirect('result');
-
+                return redirect('/admin');
             }
+            
+            
 
     	} else {
 

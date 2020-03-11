@@ -11,8 +11,21 @@ use Alert;
 class resultController extends Controller
 {
     //membuka halaman web
-    public function openWeb(){
-    	Alert::warning('Warning', 'Login gagal');
-    	return view('result');
-    }
+    public function openWeb(Request $request){
+
+    	$cekLogin = $request->session()->get('login');
+
+        if($cekLogin == 'masuk'){
+
+            $idPasien = $request->session()->get('pasien');
+    		$jenisPenyakit = DB::table('hasil')->join('penyakit','penyakit.idPenyakit','=','hasil.idPenyakit')->where('idPasien','=',$idPasien)->get();
+
+       		return view('result')->with('jenisPenyakit',$jenisPenyakit);
+
+        } else {
+
+            return redirect('/');
+
+        }
+   	}
 }

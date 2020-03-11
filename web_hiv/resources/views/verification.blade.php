@@ -72,30 +72,50 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <h1 style="text-align: center; font-size: 30pt; padding-top: 2rem;"><b> VERIFICATION </b></h1>
                         <div class="card-body" style="margin-top: 3rem">
-                            <form id="upload-hasil" method="POST" enctype="multipart/form-data">
+                            <form id="upload-hasil" method="POST" enctype="multipart/form-data" action="{{ url('/verification/proses') }}">
+                                @csrf
                                 <div class="input-group mb-3" >
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                        <input type="file" class="custom-file-input" id="customFile" name="fileBukti" accept="image/*" required>
+                                        <label class="custom-file-label" for="customFile">Choose file (image)</label>
                                     </div>
                                     <div class="input-group mb-3 custom-penyakit" style="margin-top : 1rem;">
-                                        <input type="text" name="inputJenisPenyakit" class="form-control form-control" placeholder="Jenis penyakit">
+                                        <select class="form-control" name="inputJenisPenyakit">
+                                            <option selected disabled>Pilih jenis Penyakit</option>
+                                            @foreach($penyakit as $p)
+                                            <option value="{{ $p->idPenyakit }}">{{ $p->namaPenyakit }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="input-group mb-3 custom-penyakit"">
-                                        <select class="form-control">
+                                        <select class="form-control" name="statusHIV">
                                             <option selected disabled>Pilih status HIV</option>
-                                            <option value="positif">Positif</option>
-                                            <option value="negatif">Negatif</option>
+                                            <option value="positive">Positive</option>
+                                            <option value="negative">Negative</option>
                                         </select>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-primary" style="background-color: #000; border-color: #000; height:38px; float: right;">upload</button>
+                                @foreach($hasil as $h)
+                                @if($h->ketStatus == NULL)
+                                <button type="submit" class="btn btn-primary" style="background-color: #000; border-color: #000; height:38px; float: right;">upload</button>
+                                @endif
+                                @endforeach
                             </form>
                             <table style="margin-top: 5rem;">
+                                
+                                @foreach($hasil as $h)
                                 <tr>
                                     <td><h4>Status</h4></td>
                                     <td><h4>:</h4></td>
+                                    @if( $h->verifikasi == 'ya' )
+                                        <td><h4 style="color: #00FF00;">Sudah diverifikasi</h4></td>
+                                    @elseif($h->verifikasi == 'tidak' && $h->ketStatus != NULL)
+                                        <td><h4 style="color: #FF0000;">Belum diverifikasi</h4></td>
+                                    @else
+                                        <td></td>
+                                    @endif
                                 </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>

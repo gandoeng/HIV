@@ -86,7 +86,34 @@ class testController extends Controller
                 return redirect('/test-page');
             } else {
 
-                $request->session()->put('eksternal',$eksternal);
+                $jumlah = count($eksternal);
+
+                for($i=0; $i<$jumlah; $i++){
+                    if($eksternal[$i] == 'EK001'){
+                        $persenEksternal1 = DB::table('dataHIV')->where('idEksternal','=',$eksternal[$i])->where('statusHIV','=','positive')->value('persen');
+
+                        $arrayEksternal["EK001"] = $persenEksternal1; 
+                    }
+                    if($eksternal[$i] == 'EK002'){
+                        $persenEksternal2 = DB::table('dataHIV')->where('idEksternal','=',$eksternal[$i])->where('statusHIV','=','positive')->value('persen');
+                        $arrayEksternal["EK002"] = $persenEksternal2;
+                    }
+                    if($eksternal[$i] == 'EK003'){
+                        $persenEksternal3 = DB::table('dataHIV')->where('idEksternal','=',$eksternal[$i])->where('statusHIV','=','positive')->value('persen');
+                        $arrayEksternal["EK003"] = $persenEksternal3;
+                    }
+                    if($eksternal[$i] == 'EK004'){
+                        $persenEksternal4 = DB::table('dataHIV')->where('idEksternal','=',$eksternal[$i])->where('statusHIV','=','positive')->value('persen');
+                        $arrayEksternal["EK004"] = $persenEksternal4;
+                    }
+                }
+
+                arsort($arrayEksternal);
+
+                $idEksternal = array_key_first($arrayEksternal);
+                $hasilEksternal = $arrayEksternal[$idEksternal];
+
+                $request->session()->put('eksternal',$hasilEksternal);
 
                 return redirect('/test-page2');
             }

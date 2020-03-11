@@ -73,28 +73,35 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <h1 style="text-align: center; font-size: 30pt; padding-top: 2rem;"><b> RESULT </b></h1>
                         <div class="card-body" style="border: 2px solid #71748d; margin-top: 3rem;">
+                            @foreach($jenisPenyakit as $j)
                             <table>
                                 <tr>
                                     <td><h4>Jenis Penyakit</h4></td>
                                     <td><h4>:</h4></td>
+                                    <td><h4>{{ $j->namaPenyakit }}</h4></td>
                                 </tr>
                                 <tr>
                                     <td><h4>Persentase terjangkit penyakit</h4></td>
                                     <td><h4>:</h4></td>
+                                    <td><h4>{{ $j->persenPenyakit }}</h4></td>
                                 </tr>
                                 <tr>
                                     <td><h4>Persentase terjangkit virus HIV</h4></td>
                                     <td><h4>:</h4></td>
+                                    <td><h4>{{ $j->persenHIV }}</h4></td>
                                 </tr>
                                 <tr>
                                     <td><h4>Keterangan/saran</h4></td>
                                     <td><h4>:</h4></td>
+                                    <td><h4>{{ $j->ketHasil }}</h4></td>
                                 </tr>
                             </table>
+                            @endforeach
                         </div>
+                        <!--
                         <form>
                             <button type="button" class="btn btn-primary" style="background-color: #000; border-color: #000; height:38px; margin-top: 2rem; float: right;">download</button>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
             </div>

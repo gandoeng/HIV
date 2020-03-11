@@ -23,7 +23,7 @@
         <!-- ============================================================== -->
          <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="#">HIV Test System</a>
+                <a class="navbar-brand" href="#">HIV Test System (Admin)</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -64,7 +64,47 @@
             <div class="container-fluid dashboard-content">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3 class="text-center">Content goes here!</h3>
+                        <div class="card">
+                            <div class="card-header" >
+                                <strong class="card-title">Verifikasi</strong>
+                            </div>
+                            <div class="card-body">
+                                <div style="overflow: scroll; height: 450px;">
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach($hasil as $h)        
+                                            <tr>
+                                                <td style="text-align: center;">{{$h->namaPasien}}</td>
+                                                <td style="text-align: center;">{{$h->ketStatus}}</td>
+                                                <td style="text-align: center;">{{$h->namaPenyakit}}</td>
+                                                <td style="float: center;">
+                                                    <!-- Trigger the Modal -->
+                                                    <img id="myImg" src="{{ url('/fileBukti')}}/{{ $h->lab}}" alt="Bukti" style="width:70px;height: 30px;">
+
+                                                    <!-- The Modal -->
+                                                    <div id="myModal" class="modal">
+                                                        <!-- The Close Button -->
+                                                        <span class="close">&times;</span>
+
+                                                        <!-- Modal Content (The Image) -->
+                                                        <img class="modal-content" id="img01">
+
+                                                        <!-- Modal Caption (Image Text) -->
+                                                        <div id="caption"></div>
+                                                    </div>
+                                                </td>
+                                                <td style="float: center;">
+                                                    <form action="{{ url('admin/verifikasi') }}/{{ $h->idHasil }}">
+                                                        <button type="submit" class="btn btn-primary verifikasi" style="background-color: #000; border-color: #000;">verifikasi</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,8 +142,39 @@
     <script src="{{asset('concept/assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
     <script src="{{asset('concept/assets/vendor/slimscroll/jquery.slimscroll.js')}}"></script>
     <script src="{{asset('concept/assets/libs/js/main-js.js')}}"></script>
-   
+    <!--
+    <script type="text/javascript">
+        function test(element) {
+            var newTab = window.open();
+            setTimeout(function() {
+                newTab.document.body.innerHTML = element.innerHTML;
+            }, 500);
+            return false;
+        }
+    </script>-->
+    <script type="text/javascript">
+        // Get the modal
+        var modal = document.getElementById("myModal");
 
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById("myImg");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+    </script>
 </body>
  
 </html>

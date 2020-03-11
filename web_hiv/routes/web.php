@@ -23,11 +23,17 @@ Route::get('/test-page2','testController@listGejala');
 //mengolah data 
 Route::post('/test-page2/proses','testController@proses');
 
+//mengelola data verifikasi
+Route::post('/verification/proses','verificationController@proses');
+
 //Membuka halaman web
 Route::get('/', 'indexController@openWeb');
 Route::get('/result','resultController@openWeb');
 Route::get('/verification','verificationController@openWeb');
 Route::get('/admin','adminController@openWeb');
+
+//admin verifikasi
+Route::get('/admin/verifikasi/{id}','adminController@verifikasi');
 
 //memnyimpan register
 Route::get('/index/register','indexController@simpanRegister');

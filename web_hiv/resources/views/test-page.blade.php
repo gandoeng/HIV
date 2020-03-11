@@ -98,7 +98,7 @@
                                                 @foreach($listEksternal as $l)
                                                 <tr>
                                                     <td>{{ $l->namaEksternal }}</td>
-                                                    <td><input type="radio" name="eksternal" value="{{ $l->idEksternal }}" ></td>
+                                                    <td><input type="checkbox" name="eksternal[]" value="{{ $l->idEksternal }}" ></td>
                                                 </tr>
                                                 @endforeach
                                                 
