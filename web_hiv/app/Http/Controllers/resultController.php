@@ -20,7 +20,9 @@ class resultController extends Controller
             $idPasien = $request->session()->get('pasien');
     		$jenisPenyakit = DB::table('hasil')->join('penyakit','penyakit.idPenyakit','=','hasil.idPenyakit')->where('idPasien','=',$idPasien)->get();
 
-       		return view('result')->with('jenisPenyakit',$jenisPenyakit);
+            $BFS = DB::table('dataBFS')->join('penyakit','penyakit.idPenyakit','=','dataBFS.idPenyakit')->where('idPasien','=',$idPasien)->get();
+
+       		return view('result')->with('jenisPenyakit',$jenisPenyakit)->with('BFS',$BFS);
 
         } else {
 

@@ -150,7 +150,7 @@ class testController extends Controller
             $eksternal = $request->session()->get('eksternal');
             $persenGejala = 0;
             
-            if($jumlah < 2){
+            if($jumlah <= 2){
                 $penyakit = 'PE012';
                 //mencari persentase gejala HIV
                 for ($i = 0; $i<$jumlah; $i++){
@@ -237,7 +237,7 @@ class testController extends Controller
                     ['idEksternal' => $eksternal, 'persenPenyakit' => 0, 'persenHIV' => $persenHIV, 'ketHasil' => $ketHasil, 'verifikasi' => 'tidak', 'lab' => NULL, 'idPenyakit' => 'PE012', 'idPasien' => $idPasien]
                 ]);
                 
-            } else if($jumlah >= 2 ) {
+            } else if($jumlah > 2 ) {
             
                 $hitungTBC = 0;
                 $hitungSyphilis = 0;

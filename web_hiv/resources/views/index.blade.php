@@ -95,7 +95,7 @@
                 <select class="form-control" name="gender" type="text" required>
                   <option selected disabled >Choose Your Sex</option>
                   <option value="L">Male</option>
-                  <option value="P">Vemale</option>
+                  <option value="P">Female</option>
                 </select>
               </div>
               <div class="form-group">

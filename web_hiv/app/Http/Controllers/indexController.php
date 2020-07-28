@@ -48,6 +48,10 @@ class indexController extends Controller
     		['namaPasien'=>$namaPasien, 'umur'=>$umur,'sandi'=>$sandi, 'kelamin'=>$gender,'level'=>$level, 'sudahTest'=>$sudahTest]
     	);
 
+        $idPasien = DB::table('pasien')->where('namaPasien','=',$namaPasien)->where('sandi','=',$sandi)->value('idPasien');
+
+        $request->session()->put('login','masuk');
+        $request->session()->put('pasien',$idPasien);
 
     	return redirect('test-page');
     }

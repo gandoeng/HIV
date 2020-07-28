@@ -53,6 +53,9 @@
                                 <a class="nav-link active" href="#" style="color: #fff;" ><i class="fab fa-fw fa-wpforms" style="color: #fff;"></i>Verification</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ url('test-page3') }}" style="color: #fff;" ><i class="fas fa-fw fa-file" style="color: #fff;"></i>BFS</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url('logout') }}" style="color: #fff;" ><i class="fa fa-fw fa-rocket" style="color: #fff;"></i>Log Out</a>
                             </li>
                         </ul>

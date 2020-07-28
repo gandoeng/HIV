@@ -54,6 +54,9 @@
                                 <a class="nav-link" href="{{url('verification')}}" style="color: #fff;" ><i class="fab fa-fw fa-wpforms" style="color: #fff;"></i>Verification</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ url('test-page3') }}" style="color: #fff;" ><i class="fas fa-fw fa-file" style="color: #fff;"></i>BFS</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/logout') }}" style="color: #fff;"><i class="fa fa-fw fa-rocket" style="color: #fff;"></i>Log Out</a>
                             </li>
                         </ul>
@@ -86,6 +89,15 @@
                                     <td><h4>{{ $j->persenPenyakit }}</h4></td>
                                 </tr>
                                 <tr>
+                                    <td><h4>Status HIV</h4></td>
+                                    <td><h4>:</h4></td>
+                                    @if($j->persenHIV >= 50)
+                                    <td><h4>Positif</h4></td>
+                                    @else
+                                    <td><h4>Negatif</h4></td>
+                                    @endif
+                                </tr>
+                                <tr>
                                     <td><h4>Persentase terjangkit virus HIV</h4></td>
                                     <td><h4>:</h4></td>
                                     <td><h4>{{ $j->persenHIV }}</h4></td>
@@ -97,6 +109,35 @@
                                 </tr>
                             </table>
                             @endforeach
+                        </div>
+                        <!--
+                        <form>
+                            <button type="button" class="btn btn-primary" style="background-color: #000; border-color: #000; height:38px; margin-top: 2rem; float: right;">download</button>
+                        </form> -->
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card-body" style="border: 2px solid #71748d; margin-top: 3rem;">
+                            <h5>BFS</h5>
+                            <table>
+                                <tr>
+                                    <td><h4>Jenis Penyakit</h4></td>
+                                    <td><h4>:</h4></td>
+                                    @foreach($BFS as $b)
+                                    <td><h4>{{ $b->namaPenyakit }}</h4></td>
+                                    @endforeach
+                                </tr>
+                                <tr>
+                                    <td><h4>Status HIV</h4></td>
+                                    <td><h4>:</h4></td>
+                                    @foreach($BFS as $b)
+                                    @if($b->namaPenyakit != NULL)
+                                    <td><h4>Positif</h4></td>
+                                    @else
+                                    <td><h4>Negatif</h4></td>
+                                    @endif
+                                    @endforeach
+                                </tr>
+                            </table>
                         </div>
                         <!--
                         <form>

@@ -20,6 +20,12 @@ Route::get('test-page/next','testController@nextPage');
 //halaman test keluhan
 Route::get('/test-page2','testController@listGejala');
 
+//halaman test keluhan bfs
+Route::get('/test-page3','testController@listGejalaBFS');
+
+//halaman proses bfs
+Route::post('/test-page3/proses','testController@prosesBFS');
+
 //mengolah data 
 Route::post('/test-page2/proses','testController@proses');
 
